@@ -1,0 +1,22 @@
+[Unit]
+Description=Hospital Appointment API (I222547)
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/hospital-management-system/backend
+Environment=NODE_ENV=production
+Environment=PORT=4001
+ExecStart=/usr/bin/node /var/www/hospital-management-system/backend/server.js
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target
